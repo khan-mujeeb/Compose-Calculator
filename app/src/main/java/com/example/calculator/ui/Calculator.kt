@@ -2,6 +2,7 @@ package com.example.calculator.ui.theme
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,13 +27,13 @@ fun Calculator(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black)
+            .background(MaterialTheme.colors.background)
 
     ) {
         Column(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .background(Color.Black),
+                .background(MaterialTheme.colors.background),
 
             verticalArrangement = Arrangement.spacedBy(buttonSpacing)
 
@@ -47,7 +48,7 @@ fun Calculator(
                     .padding(vertical = 70.dp, horizontal = 20.dp),
                 fontWeight = FontWeight.Bold,
                 fontSize = 40.sp,
-                color = Color.White,
+                color = MaterialTheme.colors.onPrimary,
                 maxLines = 2
             )
 
@@ -62,7 +63,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "C",
                     modifier = Modifier
-                        .background(color1)
+                        .background(MaterialTheme.colors.primary)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Clear)
@@ -72,7 +73,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "del",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Delete)
@@ -82,7 +83,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "%",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Clear)
@@ -111,7 +112,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "7",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(7))
@@ -120,7 +121,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "8",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(8))
@@ -129,7 +130,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "9",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(9))
@@ -157,7 +158,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "4",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(4))
@@ -166,7 +167,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "5",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(5))
@@ -175,7 +176,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "6",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(6))
@@ -203,7 +204,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "1",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(1))
@@ -212,7 +213,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "2",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(2))
@@ -221,7 +222,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "3",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(3))
@@ -251,7 +252,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "00",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(4))
@@ -261,7 +262,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = "0",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Number(0))
@@ -271,7 +272,7 @@ fun Calculator(
                 CalculatorButton(
                     symbol = ".",
                     modifier = Modifier
-                        .background(dark_bg)
+                        .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
                         onAction(CalculatorActions.Decimal)

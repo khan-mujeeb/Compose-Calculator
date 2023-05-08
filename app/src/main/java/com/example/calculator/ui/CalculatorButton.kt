@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,7 +31,7 @@ fun CalculatorButton(
         Text(
             text = symbol,
             fontSize = 22.sp,
-            color = Color.White,
+            color = MaterialTheme.colors.onPrimary,
             modifier = Modifier
                 .padding(16.dp)
         )
