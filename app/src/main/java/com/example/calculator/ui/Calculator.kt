@@ -24,6 +24,7 @@ fun Calculator(
     modifier: Modifier,
     onAction: (CalculatorActions) -> Unit
 ) {
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -39,15 +40,26 @@ fun Calculator(
 
         ) {
             Text(
+                text = state.previous,
+                textAlign = TextAlign.End,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding( horizontal = 20.dp),
+                fontWeight = FontWeight.Normal,
+                fontSize = 18.sp,
+                color = MaterialTheme.colors.onPrimary,
+                maxLines = 1
+            )
+
+            Text(
                 text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
                 textAlign = TextAlign.End,
                 modifier = Modifier
                     .fillMaxWidth()
-
-
-                    .padding(vertical = 70.dp, horizontal = 20.dp),
+                    .padding(horizontal = 20.dp)
+                    .padding(bottom = 40.dp),
                 fontWeight = FontWeight.Bold,
-                fontSize = 40.sp,
+                fontSize = 36.sp,
                 color = MaterialTheme.colors.onPrimary,
                 maxLines = 2
             )
@@ -56,7 +68,8 @@ fun Calculator(
         first row
          */
             Row(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
             ) {
@@ -105,7 +118,8 @@ fun Calculator(
             second row
              */
             Row(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
             ) {
@@ -151,7 +165,8 @@ fun Calculator(
             third row
              */
             Row(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
             ) {
@@ -197,7 +212,8 @@ fun Calculator(
             fourth row
              */
             Row(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
             ) {
@@ -243,7 +259,8 @@ fun Calculator(
             sixth row
              */
             Row(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(horizontal = 16.dp)
                     .padding(bottom = 20.dp),
                 horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
@@ -255,7 +272,7 @@ fun Calculator(
                         .background(MaterialTheme.colors.surface)
                         .weight(1f),
                     onClick = {
-                        onAction(CalculatorActions.Number(4))
+                        onAction(CalculatorActions.Number(0))
                     }
                 )
 

@@ -45,18 +45,23 @@ class CalculationViewModel: ViewModel() {
 
     private fun enterDecimal() {
         if (state.operation != null && !state.number1.contains('.')
-            && state.number1.isNotBlank()
         ) {
-            state = state.copy(
-                number1 = state.number1 + "."
-            )
-            return
+            if ( state.number1.isNotBlank()) {
+                state = state.copy(
+                    number1 = state.number1 + "."
+                )
+                return
+            }
+
         }
 
-        if ( !state.number2.contains('.') && state.number2.isNotBlank()) {
-            state = state.copy(
-                number2 = state.number2 + "."
-            )
+        if ( !state.number2.contains('.') ) {
+            if ( state.number2.isNotBlank()) {
+                state = state.copy(
+                    number2 = state.number2 + "."
+                )
+                return
+            }
         }
     }
 
@@ -71,7 +76,7 @@ class CalculationViewModel: ViewModel() {
         val number2 = state.number2.toDoubleOrNull()
 
         if (number1 != null  && number2 != null ) {
-            val result = when(state.operation) {
+            var result = when(state.operation) {
                 is CalculationOperations.Add -> number1 + number2
                 is CalculationOperations.Subtract -> number1 - number2
                 is CalculationOperations.Multiple -> number1 * number2
@@ -79,11 +84,27 @@ class CalculationViewModel: ViewModel() {
 
                 else -> return
             }
+
+            val ans = if (result % 1 == 0.0 ) {
+                result.toInt().toString()
+            } else {
+                result.toString().toDoubleOrNull()?.toString() ?: ""
+            }
+
+            if (result.toString().isNotBlank()) {
+                state = state.copy(
+                    previous = "${state.number1}" + "${state.operation?.symbol}" + "${state.number2}",
+                    number1 = "",
+                    number2 = "",
+                    operation = null
+                )
+            }
             state = state.copy(
-                number1 = result.toString().take(15),
+                number1 = ans.take(12),
                 number2 = "",
                 operation = null
             )
+
         }
     }
 
@@ -97,6 +118,7 @@ class CalculationViewModel: ViewModel() {
                 operation = null
             )
 
+
             state.number1.isNotBlank() -> state = state.copy(
                 number1 = state.number1.dropLast(1)
             )
@@ -106,4 +128,5 @@ class CalculationViewModel: ViewModel() {
     companion object {
         private const val MAX_NUM_LENGTH = 8
     }
+
 }
