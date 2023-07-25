@@ -25,7 +25,7 @@ fun CalculatorButton(
 
     Box(
         modifier = Modifier
-            .background(MaterialTheme.colors.surface)
+            .background(MaterialTheme.colors.surface) // set the required color
             .clickable { onClick() }
             .scale(scale)
     ) {
